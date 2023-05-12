@@ -1,3 +1,5 @@
+$primary-color: #2979ff;
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Roboto';
@@ -8,4 +10,8 @@ body {
 
 a {
   text-decoration: none;
+}
+
+.primaryText {
+  color: $primary-color;
 }

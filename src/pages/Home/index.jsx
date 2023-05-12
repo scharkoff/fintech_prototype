@@ -42,7 +42,7 @@ export function Home() {
             fontSize={12}
             marginTop={2}
           >
-            Developed by <span style={{ color: '#2979ff' }}>Fintech</span>
+            Developed by <span className="primaryText">Fintech</span>
           </Typography>
         </div>
       </div>
