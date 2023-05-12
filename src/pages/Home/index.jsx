@@ -1,8 +1,9 @@
 import React from 'react';
 import styles from './Home.module.scss';
 import { Container, Button, Typography } from '@mui/material';
+import { Link } from 'react-router-dom';
 
-export default function Home() {
+export function Home() {
   return (
     <Container>
       <div className={styles.homeWrapper}>
@@ -13,9 +14,11 @@ export default function Home() {
         </div>
         <ul className={styles.menuList}>
           <li className={styles.menuItem}>
-            <Button variant="text" color="primary" size="large">
-              Cash Flow
-            </Button>
+            <Link to="/cash-flow">
+              <Button variant="text" color="primary" size="large">
+                Cash Flow
+              </Button>
+            </Link>
           </li>
           <li className={styles.menuItem}>
             <Button variant="text" color="primary" size="large">
@@ -39,7 +42,7 @@ export default function Home() {
             fontSize={12}
             marginTop={2}
           >
-            Developed by Fintech
+            Developed by <span style={{ color: '#2979ff' }}>Fintech</span>
           </Typography>
         </div>
       </div>
