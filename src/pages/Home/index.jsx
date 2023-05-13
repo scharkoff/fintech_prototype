@@ -21,9 +21,11 @@ export function Home() {
             </Link>
           </li>
           <li className={styles.menuItem}>
-            <Button variant="text" color="primary" size="large">
-              Модель Остервальдера
-            </Button>
+            <Link to="/osterwalder-model">
+              <Button variant="text" color="primary" size="large">
+                Модель Остервальдера
+              </Button>
+            </Link>
           </li>
           <li className={styles.menuItem}>
             <Button variant="text" color="primary" size="large">

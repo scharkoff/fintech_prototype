@@ -26,7 +26,7 @@ export function LeftMenu() {
           </Link>
         </li>
         <li className={styles.leftMenuItem}>
-          <Link to="/cash-flow">
+          <Link to="/osterwalder-model">
             <IconButton>
               <GridOnIcon fontSize="large" color="primary" />
             </IconButton>
