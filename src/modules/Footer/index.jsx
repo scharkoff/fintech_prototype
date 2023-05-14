@@ -12,7 +12,7 @@ export function Footer() {
         variant="subtitle1"
         color="GrayText"
         fontSize={12}
-        marginTop={2}
+        marginTop={1}
       >
         Developed by <span className="primaryText">Fintech</span>
       </Typography>
