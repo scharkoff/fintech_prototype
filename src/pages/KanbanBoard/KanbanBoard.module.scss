@@ -1,8 +1,8 @@
 .kanbanBoardWrapper {
+  min-height: calc(100vh - 200px);
   margin-top: 100px;
   width: 100%;
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
   padding: 20px 0 40px 0;
@@ -10,6 +10,7 @@
 
 .boardsWrapper {
   display: flex;
+  justify-content: center;
   width: 100%;
 }
 
@@ -129,3 +130,5 @@
     color: red;
   }
 }
+
+@import './KanbanBoard.media.module.scss';

@@ -3,6 +3,7 @@ import Spreadsheet from 'react-spreadsheet';
 import styles from './CashFlow.module.scss';
 import AddIcon from '@mui/icons-material/Add';
 import { Button, Container, Typography } from '@mui/material';
+import { Footer } from '../../modules/Footer';
 
 export function CashFlow() {
   const [total, setTotal] = React.useState(0);
@@ -15,13 +16,21 @@ export function CashFlow() {
     [{}],
   ]);
 
-  const handleCellChange = (prevCell, { value }, { row, column }) => {
+  const handleCellChange = (prevCell, { value }, currentCellCoords) => {
+    if (!currentCellCoords) {
+      return;
+    }
+
     const newData = [...data];
 
-    newData[row][column] = { value: value };
+    newData[currentCellCoords.row][currentCellCoords.column] = { value: value };
 
-    if (newData[row][column].value !== value) {
-      newData[row][column] = { value: value };
+    if (
+      newData[currentCellCoords.row][currentCellCoords.column].value !== value
+    ) {
+      newData[currentCellCoords.row][currentCellCoords.column] = {
+        value: value,
+      };
       setData(newData);
     }
 
@@ -64,6 +73,8 @@ export function CashFlow() {
           <Spreadsheet data={data} onCellCommit={handleCellChange} />
         </div>
       </div>
+
+      <Footer />
     </Container>
   );
 }

@@ -1,0 +1,10 @@
+@media screen and (max-width: 1023px) {
+  .boardsWrapper {
+    flex-direction: column;
+  }
+
+  .board {
+    width: 100%;
+    margin: 20px 0 0 0;
+  }
+}

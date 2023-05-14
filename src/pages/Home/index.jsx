@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Home.module.scss';
 import { Container, Button, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { Footer } from '../../modules';
 
 export function Home() {
   return (
@@ -37,21 +38,9 @@ export function Home() {
             </Link>
           </li>
         </ul>
-        <div className={styles.footer}>
-          <Typography variant="subtitle1" color="GrayText" fontSize={14}>
-            Прототип приложения для автоматизации бизнес-процессов малых
-            предприятий
-          </Typography>
-          <Typography
-            variant="subtitle1"
-            color="GrayText"
-            fontSize={12}
-            marginTop={2}
-          >
-            Developed by <span className="primaryText">Fintech</span>
-          </Typography>
-        </div>
       </div>
+
+      <Footer />
     </Container>
   );
 }

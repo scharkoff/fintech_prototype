@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './OsterwalderModel.module.scss';
 import { Container, Typography } from '@mui/material';
+import { Footer } from '../../modules/Footer';
 
 export function OsterwalderModel() {
   return (
@@ -113,6 +114,8 @@ export function OsterwalderModel() {
           </table>
         </div>
       </div>
+
+      <Footer />
     </Container>
   );
 }

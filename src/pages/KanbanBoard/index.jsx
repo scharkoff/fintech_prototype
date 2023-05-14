@@ -4,32 +4,10 @@ import AddIcon from '@mui/icons-material/Add';
 import LibraryAddIcon from '@mui/icons-material/LibraryAdd';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { Container, Typography, IconButton } from '@mui/material';
+import { Footer } from '../../modules/Footer';
 
 export function KanbanBoard() {
-  const [groups, setGroups] = React.useState([
-    {
-      id: 1,
-      title: 'Учеба',
-      status: 'backlog',
-      tasks: [
-        {
-          id: 1,
-          text: 'Сделать уроки',
-          status: 'backlog',
-        },
-        {
-          id: 2,
-          text: 'Решить математику',
-          status: 'backlog',
-        },
-        {
-          id: 3,
-          text: 'Почитать литературу',
-          status: 'backlog',
-        },
-      ],
-    },
-  ]);
+  const [groups, setGroups] = React.useState([]);
 
   const handleAddGroup = (groupStatus) => {
     setGroups((prevGroups) => [
@@ -100,8 +78,17 @@ export function KanbanBoard() {
   const handleDrop = (event, targetStatus, targetGroupId) => {
     event.preventDefault();
     const data = event.dataTransfer.getData('text/plain');
+    let parsedData;
+
+    try {
+      parsedData = JSON.parse(data);
+    } catch (error) {
+      console.error('Error parsing JSON data:', error);
+      return;
+    }
+
     const { onDragStartGroupId, onDragStartTaskId, onDragStartTaskText } =
-      JSON.parse(data);
+      parsedData;
 
     const newGroups = groups.map((group) => {
       if (onDragStartGroupId === targetGroupId) {
@@ -128,6 +115,19 @@ export function KanbanBoard() {
     setGroups(newGroups);
   };
 
+  const handleGroupTitleChange = (groupId, newTitle) => {
+    const newGroups = groups.map((group) => {
+      if (group.id === groupId) {
+        return {
+          ...group,
+          title: newTitle,
+        };
+      }
+      return group;
+    });
+
+    setGroups(newGroups);
+  };
   return (
     <Container maxWidth="lg">
       <div className={styles.kanbanBoardWrapper}>
@@ -159,14 +159,9 @@ export function KanbanBoard() {
                       <input
                         className={styles.boardGroupTitle}
                         value={group.title}
-                        onChange={(event) => {
-                          const newGroups = [...groups];
-                          newGroups[i] = {
-                            ...group,
-                            title: event.target.value,
-                          };
-                          setGroups(newGroups);
-                        }}
+                        onChange={(e) =>
+                          handleGroupTitleChange(group.id, e.target.value)
+                        }
                       />
                       <IconButton
                         size="small"
@@ -256,14 +251,9 @@ export function KanbanBoard() {
                       <input
                         className={styles.boardGroupTitle}
                         value={group.title}
-                        onChange={(event) => {
-                          const newGroups = [...groups];
-                          newGroups[i] = {
-                            ...group,
-                            title: event.target.value,
-                          };
-                          setGroups(newGroups);
-                        }}
+                        onChange={(e) =>
+                          handleGroupTitleChange(group.id, e.target.value)
+                        }
                       />
                       <IconButton
                         size="small"
@@ -352,14 +342,9 @@ export function KanbanBoard() {
                       <input
                         className={styles.boardGroupTitle}
                         value={group.title}
-                        onChange={(event) => {
-                          const newGroups = [...groups];
-                          newGroups[i] = {
-                            ...group,
-                            title: event.target.value,
-                          };
-                          setGroups(newGroups);
-                        }}
+                        onChange={(e) =>
+                          handleGroupTitleChange(group.id, e.target.value)
+                        }
                       />
                       <IconButton
                         size="small"
@@ -426,6 +411,8 @@ export function KanbanBoard() {
           </div>
         </div>
       </div>
+
+      <Footer />
     </Container>
   );
 }
