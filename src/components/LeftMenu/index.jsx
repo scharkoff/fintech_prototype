@@ -33,7 +33,7 @@ export function LeftMenu() {
           </Link>
         </li>
         <li className={styles.leftMenuItem}>
-          <Link to="/cash-flow">
+          <Link to="/kanban-board">
             <IconButton>
               <DashboardCustomizeIcon fontSize="large" color="primary" />
             </IconButton>

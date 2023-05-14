@@ -20,6 +20,7 @@ export function Home() {
               </Button>
             </Link>
           </li>
+
           <li className={styles.menuItem}>
             <Link to="/osterwalder-model">
               <Button variant="text" color="primary" size="large">
@@ -27,10 +28,13 @@ export function Home() {
               </Button>
             </Link>
           </li>
+
           <li className={styles.menuItem}>
-            <Button variant="text" color="primary" size="large">
-              Kanban Board
-            </Button>
+            <Link to="/kanban-board">
+              <Button variant="text" color="primary" size="large">
+                Kanban Board
+              </Button>
+            </Link>
           </li>
         </ul>
         <div className={styles.footer}>
