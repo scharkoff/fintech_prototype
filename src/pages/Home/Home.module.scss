@@ -1,6 +1,6 @@
 .homeWrapper {
   width: 100%;
-  height: calc(100vh - 100px);
+  min-height: calc(100vh - 100px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,7 +13,7 @@
 }
 
 .menuList {
-  margin: 100px 0 0 0;
+  margin: 50px 0 50px 0;
   padding: 0;
   text-align: center;
   list-style: none;
